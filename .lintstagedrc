@@ -1,0 +1,6 @@
+{
+  "*.{ts,js,tsx,jsx}": ["nx affected:lint --fix --files"],
+  "*.{json,*rc,md}": ["nx format:write"],
+  "package.json": ["npx -y sort-package-json"],
+  "*.{scss,css}": ["nx affected --target=stylelint"]
+}
