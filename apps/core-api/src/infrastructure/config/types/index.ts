@@ -4,9 +4,4 @@ import { JWTConfig } from './jwt.interface';
 import { LoggerConfig } from './logger.interface';
 import { EmailServiceConfig } from './mailer.interface';
 
-export interface IConfig
-  extends AppsConfig,
-    DatabaseConfig,
-    JWTConfig,
-    LoggerConfig,
-    EmailServiceConfig {}
+export interface IConfig extends AppsConfig, DatabaseConfig, JWTConfig, LoggerConfig, EmailServiceConfig {}

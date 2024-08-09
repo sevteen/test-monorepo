@@ -1,11 +1,5 @@
 import { plainToClass } from 'class-transformer';
-import {
-  IsBoolean,
-  IsEnum,
-  IsNumber,
-  IsString,
-  validateSync,
-} from 'class-validator';
+import { IsEnum, IsNumber, IsString, validateSync } from 'class-validator';
 
 enum Environment {
   Development = 'development',
@@ -49,8 +43,6 @@ class EnvironmentVariables {
   DATABASE_SYSTEM_NAME: string;
   @IsString()
   DATABASE_SYSTEM_SCHEMA: string;
-  @IsBoolean()
-  DATABASE_SYSTEM_SYNCHRONIZE: boolean;
 
   @IsString()
   DATABASE_TENANT_HOST: string;
@@ -64,8 +56,6 @@ class EnvironmentVariables {
   DATABASE_TENANT_NAME: string;
   @IsString()
   DATABASE_TENANT_SCHEMA: string;
-  @IsBoolean()
-  DATABASE_TENANT_SYNCHRONIZE: boolean;
 }
 
 export function validate(config: Record<string, unknown>) {

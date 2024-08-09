@@ -5,6 +5,21 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "lint": {},
+    "preview": {},
+    "test": {},
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "buildTarget": "core-api:build",
+        "outputPath": "dist/apps/core-api",
+        "main": "apps/core-api/src/main.ts",
+        "tsConfig": "apps/core-api/tsconfig.app.json",
+        "webpackConfig": "apps/core-api/webpack.config.js",
+        "babelConfig": "apps/core-api/.babelrc",
+        "babelUpwardRootMode": true
+      }
+    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",

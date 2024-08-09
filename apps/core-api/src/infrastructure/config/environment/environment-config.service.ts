@@ -1,8 +1,6 @@
-import { Dialect } from 'sequelize';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { Dialect } from 'sequelize';
 import { IConfig } from '../types';
 import { JWT } from '../types/jwt.interface';
 import { MailerConfig } from '../types/mailer.interface';
@@ -10,18 +8,7 @@ import { DBConfig } from './../types/database.interface';
 
 @Injectable()
 export class EnvironmentConfigService implements IConfig {
-  private privateKey: string;
-  private publicKey: string;
-  constructor(private configService: ConfigService) {
-    this.publicKey = readFileSync(
-      join(__dirname, '..', '..', 'keys/public.key'),
-      'utf-8'
-    );
-    this.privateKey = readFileSync(
-      join(__dirname, '..', '..', 'keys/private.key'),
-      'utf-8'
-    );
-  }
+  constructor(private configService: ConfigService) {}
 
   getAppId(): string {
     return this.configService.get<string>('APP_ID');
@@ -43,26 +30,25 @@ export class EnvironmentConfigService implements IConfig {
 
   //Jwt Config
 
-  getJwtAccess(): Omit<JWT, 'secret'> {
+  getJwtAccess(): JWT {
     return {
-      privateKey: this.privateKey,
-      publicKey: this.publicKey,
+      secret: this.configService.get<string>('JWT_ACCESS_SECRET'),
       time: this.configService.get<number>('JWT_ACCESS_TIME'),
     };
   }
-  getJwtConfirmation(): Omit<JWT, 'privateKey' | 'publicKey'> {
+  getJwtConfirmation(): JWT {
     return {
       secret: this.configService.get<string>('JWT_CONFIRMATION_SECRET'),
       time: this.configService.get<number>('JWT_CONFIRMATION_TIME'),
     };
   }
-  getJwtResetPassword(): Omit<JWT, 'privateKey' | 'publicKey'> {
+  getJwtResetPassword(): JWT {
     return {
       secret: this.configService.get<string>('JWT_RESET_PASSWORD_SECRET'),
       time: this.configService.get<number>('JWT_RESET_PASSWORD_TIME'),
     };
   }
-  getJwtRefresh(): Omit<JWT, 'privateKey' | 'publicKey'> {
+  getJwtRefresh(): JWT {
     return {
       secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
       time: this.configService.get<number>('JWT_REFRESH_TIME'),

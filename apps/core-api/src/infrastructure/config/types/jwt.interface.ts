@@ -1,6 +1,4 @@
 export interface JWT {
-  privateKey: string;
-  publicKey: string;
   secret: string;
   time: number;
 }
