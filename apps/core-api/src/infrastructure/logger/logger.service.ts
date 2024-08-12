@@ -16,7 +16,7 @@ export class LoggerService implements ILogger {
   private createMeta(...meta: any) {
     return {
       ...meta,
-      requestId: this.request['requestId'] || 'N/A',
+      requestId: this.request.headers['x-request-id'] || 'N/A',
       serviceName: this.serviceName || 'core-api-global',
     };
   }

@@ -15,12 +15,22 @@ export class GlobalExceptionFilter<T = any> implements ExceptionFilter {
 
     this.logMessage(request, message, status, exception);
 
-    response.status(status).send({
-      code: status,
-      timestamp: new Date().toISOString(),
-      message,
-      url: request.url,
-    });
+    // Only server error to send request_id
+    if (status === 500) {
+      response.status(status).send({
+        code: status,
+        timestamp: new Date().toISOString(),
+        request_id: request.headers['x-request-id'] as string,
+        message,
+        url: request.url,
+      });
+    } else {
+      response.status(status).send({
+        code: status,
+        timestamp: new Date().toISOString(),
+        message,
+      });
+    }
   }
 
   private logMessage(request: FastifyRequest, message: string | object, status: number, exception: T) {

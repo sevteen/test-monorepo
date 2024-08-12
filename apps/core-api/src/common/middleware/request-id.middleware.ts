@@ -8,7 +8,7 @@ export class RequestIdMiddleware implements NestMiddleware {
   constructor(private readonly logger: LoggerService) {}
   use(req: FastifyRequest, res: FastifyReply, next: () => void) {
     const requestId = uuid();
-    req['requestId'] = requestId;
+    req.headers['x-request-id'] = requestId;
     next();
   }
 }
