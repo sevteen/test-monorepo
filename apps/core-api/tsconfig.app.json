@@ -5,8 +5,17 @@
     "module": "CommonJS",
     "types": ["node"],
     "emitDecoratorMetadata": true,
-    "target": "es2021"
+    "target": "es2021",
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@common/*": ["src/common/*"],
+      "@assets/*": ["src/assets/*"],
+      "@domain/*": ["src/domain/*"]
+    }
   },
+
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
   "include": ["src/**/*.ts", "keys/*"]
 }
