@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky && pnpm run setup",
-    "lint": "nx affected -t lint && nx format:check --untracked false",
+    "lint": "nx affected -t lint && ./scripts/pretty-format-check.sh",
     "prepare": "husky",
     "setup": "pnpm nx run-many --target=setup --all",
     "start:api:dev": "infisical run --env=dev -- nx serve core-api --configuration=development",
