@@ -11,7 +11,7 @@ import { LoggerService } from './logger.service';
 export class LoggerModule {
   static forRoot(): DynamicModule {
     return {
-      imports: [EnvironmentConfigModule],
+      imports: [],
       module: LoggerModule,
       providers: [
         {
