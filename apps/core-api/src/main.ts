@@ -1,3 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('dotenv').config();
+import 'reflect-metadata';
+import { AppModule } from '@app/di/AppModule';
 import fastifyCookie from '@fastify/cookie';
 import fastifyCors from '@fastify/cors';
 import fastifyCsrf from '@fastify/csrf-protection';
@@ -6,7 +10,6 @@ import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
-import { AppModule } from './app.module';
 
 async function bootstrap() {
   console.log(process.env);
