@@ -17,6 +17,7 @@
     ],
     "sharedGlobals": []
   },
+  "useDaemonProcess": true,
   "plugins": [
     {
       "plugin": "@nx/webpack/plugin",

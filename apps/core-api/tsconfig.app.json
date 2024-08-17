@@ -6,16 +6,14 @@
     "types": ["node"],
     "emitDecoratorMetadata": true,
     "target": "es2021",
-    "baseUrl": "./",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@infrastructure/*": ["src/infrastructure/*"],
-      "@common/*": ["src/common/*"],
-      "@assets/*": ["src/assets/*"],
-      "@domain/*": ["src/domain/*"]
+      "@app/*": ["apps/core-api/src/app/*"],
+      "@infrastructure/*": ["apps/core-api/src/infrastructure/*"],
+      "@common/*": ["apps/core-api/src/common/*"],
+      "@assets/*": ["apps/core-api/src/assets/*"],
+      "@domain/*": ["apps/core-api/src/domain/*"]
     }
   },
-
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
-  "include": ["src/**/*.ts", "keys/*"]
+  "include": ["src/**/*.ts"]
 }

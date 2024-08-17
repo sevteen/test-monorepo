@@ -1,0 +1,29 @@
+{
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "dynamicImport": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    },
+    "target": "es2021",
+    "loose": true,
+    "externalHelpers": true,
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+      "@common/*": ["src/common/*"],
+      "@assets/*": ["src/assets/*"],
+      "@domain/*": ["src/domain/*"]
+    }
+  },
+  "module": {
+    "type": "commonjs",
+    "noInterop": false
+  },
+  "sourceMaps": true
+}
