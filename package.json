@@ -43,8 +43,11 @@
     "@nestjs/platform-fastify": "^10.3.10",
     "@nestjs/sequelize": "^10.0.1",
     "@nestjs/typeorm": "^10.0.2",
+    "@nx/devkit": "19.5.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "dotenv-cli": "^7.4.2",
+    "env-var": "^7.5.0",
     "fastify": "4.28.0",
     "nestjs-got-cjs": "^1.1.0",
     "next": "14.2.3",
@@ -71,6 +74,7 @@
     "@nx/nest": "19.5.3",
     "@nx/next": "19.5.3",
     "@nx/node": "19.5.3",
+    "@nx/plugin": "19.5.3",
     "@nx/react": "19.5.3",
     "@nx/vite": "19.5.3",
     "@nx/web": "19.5.3",
@@ -156,5 +160,11 @@
   "engines": {
     "node": "^18.13.0 || ^20.9.0",
     "pnpm": ">=5.0.0"
+  },
+  "mikro-orm": {
+    "configPaths": [
+      "./dist/apps/core-api/src/infrastructure/database/orm/mikroorm/mikro-orm.config.js",
+      "./apps/core-api/src/infrastructure/database/orm/mikroorm/mikro-orm.config.ts"
+    ]
   }
 }
